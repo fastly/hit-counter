@@ -1,0 +1,23 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["sue.smith@fastly.com"]
+description = "A hit counter using KV Store on Fastly Compute"
+language = "javascript"
+manifest_version = 3
+name = "hit-counter"
+
+[scripts]
+  build = "npm run build"
+  post_init = "npm install"
+
+[setup]
+
+  [setup.backends]
+
+    [setup.backends.blog]
+      address = "glitchdotcom.github.io"
+
+  [setup.kv_stores]
+
+    [setup.kv_stores.pagehits]
